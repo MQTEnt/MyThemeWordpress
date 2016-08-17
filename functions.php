@@ -100,3 +100,26 @@ if(!function_exists('tmq_menu')){
     wp_nav_menu($menu); //Hiển thị menu (navbar)
   }
 }
+
+/*
+@ Hàm phân trang 
+*/
+if(!function_exists('tmq_pagination')){
+  function tmq_pagination(){
+    //Các hàm dựa vào những cài đặt trong (Settings/Reading)
+    //đường dẫn các page hiển thị bài viết mặc định là /page/2, page/3...
+    //mỗi page sẽ chứa số lượng bài viết được set trong Settings/Reading
+    if( $GLOBALS['wp_query']->max_num_pages < 2){
+      //Không phân trang nếu ít hơn 2 trang
+      return '';
+    } ?>
+    <nav class="pagination" role="navigation">
+      <?php if(get_next_posts_link()): //Nếu có đường link bài cũ hơn ?>
+        <div class="prev"><?php next_posts_link(__('Order posts','tmq')); ?></div>
+      <?php endif; ?>
+      <?php if(get_previous_posts_link()): ?>
+        <div class="next"><?php previous_posts_link(__('Newer posts','tmq')); ?></div>
+      <?php endif; ?>
+    </nav>
+  <?php }
+}
