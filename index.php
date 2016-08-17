@@ -3,9 +3,9 @@
 	<div id="main-content">
 		<?php if(have_posts()): while(have_posts()): the_post(); //Loop?>
 		<?php
-		get_template_part('content', get_post_format()); 
-		//Nhúng trang content-$format.php nếu post đó có format (image, video, gallery, quote, link)
-		//nếu không thì nhúng trang content.php
+			get_template_part('content', get_post_format()); 
+			//Hàm nhúng trang content-$format.php nếu post đó có format (image, video, gallery, quote, link)..
+			//...nếu không thì hàm sẽ tự động nhúng trang content.php
 		?>
 		<?php endwhile ?>
 		<?php tmq_pagination(); //Gọi hàm phân trang ?>

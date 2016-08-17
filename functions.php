@@ -123,3 +123,100 @@ if(!function_exists('tmq_pagination')){
     </nav>
   <?php }
 }
+
+/*
+@ Hàm hiển thị Thumbnail (Featured Image) -->
+*/
+if(!function_exists('tmq_thumbnail')){
+  function tmq_thumbnail($size){
+          //Chỉ hiển thị thumbnail cho những post đủ điều kiện sau:
+          if(!is_single() && has_post_thumbnail() && !post_password_required() || has_post_format('image')): ?>
+            <fingure class="post-thumbnail">
+              <?php the_post_thumbnail($size); //Tham số dựa trên kích cỡ các thumnail tại Settings/Media?>
+            </fingure>
+          <?php endif; ?>
+  <?php }
+}
+
+/*
+@ Hàm hiển thị Entry-Header (tiêu đề post)
+*/
+if(!function_exists('tmq_entry_header')){
+  function tmq_entry_header(){ ?>
+          <?php if(is_single()): //Nếu là trang hiển thị nội dung bài viêt (single.php) ?>
+            <h1 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h1>
+          <?php else: ?>
+            <h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
+          <?php endif; ?>
+  <?php }
+}
+
+/*
+@ Hàm hiển thị Entry-meta (Tên tác giả, Tags, Category...)
+*/
+if(!function_exists('tmq_entry_meta')){
+  function tmq_entry_meta(){ ?>
+    <?php if(!is_page()): //Nếu là Page thì không cần hiển thị entry meta ?>
+      <div class="entry-meta">
+        <?php 
+          printf(__('<span class="author">Posted by %1$s,</span>','tmq'), get_the_author());
+          printf(__('<span class="date-published"> at %1$s</span>','tmq'), get_the_modified_date());
+          printf(__('<span class="category"> in: %1$s</span> ','tmq'), get_the_category_list(', '));
+          if(comments_open()): //Nếu post mở chức năng bình luận
+            echo '<span class="meta-reply">';
+            comments_popup_link( 
+              __('Leave a comment','tmq'), 
+              __('Only one comment','tmq'), 
+              __('% comment','tmq'), 
+              __('Read all comment','tmq')
+            );
+            echo '</span>';
+          endif;
+        ?>
+      </div> <!-- End #entry-meta -->
+    <?php endif; ?>
+  <?php }
+}
+
+/*
+@ Hàm hiển thị Entry-content (Nội dung bài viết)
+*/
+if(!function_exists('tmq_entry_content')){
+  function tmq_entry_content(){
+    if(!is_single()){
+      //Hiển thị phần rút ngọn nội dung nếu không phải là trang chủ
+      the_excerpt();
+    }
+    else{
+      //Hiển thị toàn bộ nội dung nếu là trang hiển thị riêng (single.php)
+      the_content();
+      /* Phân trang cho single */
+      $link_pages=[
+        'before' => __('<p>Page: ','tmq'),
+        'after' => '</p>',
+        'nextpagelink' => __('Next page','tmq'),
+        'previouspagelink' => __('Previous page','tmq')
+      ];
+      wp_link_pages($link_pages); //Hook //Dành cho việc phân trang trong post (<!--nextpage-->)
+    }
+  }
+}
+/* Hiển thị Read more (thay thế dấu [...]) */
+function tmq_read_more(){
+  return '<a class="read-more" href="'.get_permalink(get_the_ID()).'">'.__(' ...Read more','tmq').'<a>';
+}
+add_filter('excerpt_more','tmq_read_more');
+
+/*
+@ Hàm hiển thị Entry_tag
+*/
+if(!function_exists('tmq_entry_tag')){
+  function tmq_entry_tag(){
+    //Nếu post hiện tại có tag thì hiển thị
+    if(has_tag()):
+      echo '<div class="entry-tag">';
+      printf(__('Tagged in %1$s', 'tmq'), get_the_tag_list('',', '));
+      echo '</div> <!-- End .entry-tag -->';
+    endif;
+  }
+}
