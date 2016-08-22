@@ -1,7 +1,7 @@
 <?php get_header(); //include("header.php"); ?>
 <div class="content">
 	<div id="main-content">
-		<?php if(have_posts()): while(have_posts()): the_post(); //Loop?>
+		<?php if(have_posts()): while(have_posts()): the_post(); //Loop ?>
 		<?php
 			get_template_part('content', get_post_format()); 
 			//Hàm nhúng trang content-$format.php nếu post đó có format (image, video, gallery, quote, link)..

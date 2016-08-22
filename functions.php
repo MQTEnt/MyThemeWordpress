@@ -183,12 +183,12 @@ if(!function_exists('tmq_entry_meta')){
 */
 if(!function_exists('tmq_entry_content')){
   function tmq_entry_content(){
-    if(!is_single()){
-      //Hiển thị phần rút ngọn nội dung nếu không phải là trang chủ
+    if(!is_single() && !is_page()){
+      //Hiển thị phần rút ngọn nội dung nếu không phải là trang đơn (single) và Page
       the_excerpt();
     }
     else{
-      //Hiển thị toàn bộ nội dung nếu là trang hiển thị riêng (single.php)
+      //Hiển thị toàn bộ nội dung nếu là trang đơn (single.php) và Page (page.php)
       the_content();
       /* Phân trang cho single */
       $link_pages=[
