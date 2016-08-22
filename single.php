@@ -4,7 +4,7 @@
 		<?php if(have_posts()): while(have_posts()): the_post(); //Loop ?>
 		<?php
 			get_template_part('content', get_post_format());
-			get_template_part('author-bio'); //Chèn trang giới thiệu tác giả
+			get_template_part('author-bio'); //Chèn trang giới thiệu tác giả author-bio.php
 			comments_template(); //Chèn khung comment
 		?>
 		<?php endwhile ?>

@@ -8,9 +8,9 @@
 			//...nếu không thì hàm sẽ tự động nhúng trang content.php
 		?>
 		<?php endwhile ?>
-		<?php tmq_pagination(); //Gọi hàm phân trang ?>
+		<?php tmq_pagination(); //Hàm phân trang ?>
 		<?php else: ?>
-			<?php get_template_part('content', 'none'); //Nhúng trang content-none.php nếu trang không có post ?>
+			<?php get_template_part('content', 'none'); //Nhúng trang content-none.php nếu không có post ?>
 		<?php endif ?>
 	</div> <!-- End #main-content -->
 	<div id="side-bar">
