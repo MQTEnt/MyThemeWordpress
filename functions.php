@@ -220,3 +220,13 @@ if(!function_exists('tmq_entry_tag')){
     endif;
   }
 }
+
+
+/*** Nhúng file style.css ***/
+function tmq_style(){
+  wp_register_style('main-style', get_template_directory_uri().'/style.css', 'all'); //Đăng kí file css
+  wp_enqueue_style('main-style'); //Đưa vào danh sách những file css
+
+  //... Có thể nhúng nhiều file .css trong hàm này
+}
+add_action('wp_enqueue_scripts', 'tmq_style'); //Hook gọi hàm nhúng file css ở trên
