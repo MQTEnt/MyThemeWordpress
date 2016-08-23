@@ -9,6 +9,151 @@
  * Textdomain: tmq
  * Languages Folder: /languages
  */
- body{
- 	color: red;
+
+ /* GLOBAL STYLE */
+ html{
+ 	box-sizing: border-box;
+ 	-moz-box-sizing: border-box;
+ 	-webkit-box-sizing: border-box;
+ 	word-wrap:break-word; /* New line for long word (Chrome)*/
  }
+ body{
+ 	font-size: 100%;
+ 	font-family: "Helvetica Neue", Arial, sans-serif;
+ 	-webkit-font-smoothing: antialiased;
+ }
+ img{
+ 	max-width: 100%;
+ 	height: auto;
+ }
+ a{
+ 	color: #f6591c;
+ 	text-decoration: none;
+ }
+ a:hover, a:visited{
+ 	color: #ff1f00;
+ 	text-decoration: underline;
+ }
+ input, input[type="submit"], button{
+ 	border: 1px solid #c8c8c8 !important;
+ 	padding: 5px 10px;
+ }
+ h1{
+ 	font-size: 2.2em;
+ }
+ h2{
+ 	font-size: 2em;
+ }
+ h3{
+ 	font-size: 1.8em;
+ }
+ h4{
+ 	font-size: 1.55em;
+ }
+ h5{
+ 	font-size: 1.3em;
+ }
+ h6{
+ 	font-size: 1.1em;
+ }
+ table, table tr, table td{
+ 	border: 1px solid #e7e7e7;
+ 	padding: 8px;
+ }
+
+/*** Chia cột website ***/
+/** Thẻ bao ngoài #container **/
+ #container{
+ 	width: 1024px;
+ 	margin: 0 auto;
+ 	background: #fff;
+ 	border: 1px solid #d1d1d1;
+ 	padding: 10px 25px;
+ }
+
+ /* #content */
+ .content{
+ 	overflow: hidden; /*Clear float */
+ }
+ #main-content{
+ 	width: 620px;
+ 	float: left;
+ 	margin-right: 10px;
+ }
+ #sidebar{
+ 	width: 320px;
+ 	float: right;
+ 	margin-left: 10px;
+ 	padding-left: 20px;
+ }
+
+ /*** Header ***/
+ #header{
+ 	margin-bottom: 30px;
+ 	line-height: 2em;
+ }
+ #header .site-name{
+
+ }
+ #header .site-name h1{
+ 	margin: 0;
+ 	font-size: 0; /* Bỏ kích thước thẻ h1 */
+ }
+ #header .site-name a{
+ 	color: #4681DA;
+ 	font-size: 32px;
+ 	font-weight: bold;
+ }
+ #header .site-description{
+	margin-top: -1em;
+	color: #868686;
+	font-family: serif;
+	font-style: italic;
+}
+
+/*** Primary-menu ***/
+.primary-menu:after{
+	display: table;
+	content: "";
+	clear: both;	
+}
+/*Copy*/
+.primary-menu ul{
+        border: 1px solid #000000;
+        -moz-box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.2);
+        -webkit-box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.2);
+        box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.2);
+        background: #565656;
+        background: -moz-linear-gradient(#565656 0%, #323232 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #565656), color-stop(100%, #323232));
+        background: -webkit-linear-gradient(#565656 0%, #323232 100%);
+        background: linear-gradient(#565656 0%, #323232 100%);
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        width: 100%;
+}
+.primary-menu ul li,
+.primary-menu ul li ul li {
+        -moz-box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.2);
+        -webkit-box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.2);
+        box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.2);
+        background: #565656;
+        background: -moz-linear-gradient(#565656 0%, #323232 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #565656), color-stop(100%, #323232));
+        background: -webkit-linear-gradient(#565656 0%, #323232 100%);
+        background: linear-gradient(#565656 0%, #323232 100%);
+}
+.primary-menu ul li a {
+        color: #f7f7f7;
+        border-top: none;
+        border-left: none;
+}
+.primary-menu ul li a:hover,
+.primary-menu ul li.sfHover  {
+        background: #555555;
+}
+.primary-menu ul li ul {
+        width: auto;
+}
+

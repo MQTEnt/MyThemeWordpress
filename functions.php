@@ -96,6 +96,7 @@ if(!function_exists('tmq_menu')){
       'theme_location' => $slug,
       'container' => 'nav',
       'container_class' => $slug,
+      'items_wrap' => '<ul id="%1$s" class="%2$s sf-menu">%3$s</ul>' //Thêm id và class cho thẻ ul của navbar
     );
     wp_nav_menu($menu); //Hiển thị menu (navbar)
   }
@@ -224,9 +225,22 @@ if(!function_exists('tmq_entry_tag')){
 
 /*** Nhúng file style.css ***/
 function tmq_style(){
+  //style.css
   wp_register_style('main-style', get_template_directory_uri().'/style.css', 'all'); //Đăng kí file css
   wp_enqueue_style('main-style'); //Đưa vào danh sách những file css
 
-  //... Có thể nhúng nhiều file .css trong hàm này
+  //reset.css
+  wp_register_style('reset-style', get_template_directory_uri().'/reset.css', 'all');
+  wp_enqueue_style('reset-style');
+
+  //SuperFish Menu
+  wp_register_style('superfish-style', get_template_directory_uri().'/superfish.css', 'all');
+  wp_enqueue_style('superfish-style');
+  wp_register_script('superfish-script', get_template_directory_uri().'/superfish.js', ['jquery']); //Thư viện SupperFish phụ thuộc vào jQuery nên cần đăng kí jQuery chạy trước
+  wp_enqueue_script('superfish-script');
+
+  //Custom script
+  wp_register_script('custom-script', get_template_directory_uri().'/custom.js', ['jquery']); //Thư viện SupperFish phụ thuộc vào jQuery nên cần đăng kí jQuery chạy trước
+  wp_enqueue_script('custom-script');
 }
 add_action('wp_enqueue_scripts', 'tmq_style'); //Hook gọi hàm nhúng file css ở trên

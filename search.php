@@ -20,7 +20,7 @@
 			<?php get_template_part('content', 'none'); //Nhúng trang content-none.php nếu trang không có post ?>
 		<?php endif ?>
 	</div> <!-- End #main-content -->
-	<div id="side-bar">
+	<div id="sidebar">
 		<?php get_sidebar(); //sidebar.php ?>
 	</div> <!-- End #side-bar -->
 </div> <!-- End .content -->

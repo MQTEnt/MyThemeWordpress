@@ -17,7 +17,7 @@ Template Name: Contact
 			<?php echo do_shortcode('[contact-form-7 id="1412" title="Contact form 1"]'); //Thực thi short code của plug-in đã cài đặt (vd plug-in Contact Form 7) để hiển thị giao diện ?>
 		</div> <!-- End .contact-form -->
 	</div> <!-- End #main-content -->
-	<div id="side-bar">
+	<div id="sidebar">
 		<?php get_sidebar(); //sidebar.php ?>
 	</div> <!-- End #side-bar -->
 </div> <!-- End .content -->
