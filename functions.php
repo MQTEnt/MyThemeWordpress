@@ -67,23 +67,32 @@ if(!function_exists('tmq_theme_setup')){
 /* TEMPLATE FUNCTIONS */
 if (!function_exists('tmq_header')) {
   function tmq_header(){ ?>
-    <div class="site-name">
+      <div class="site-name">
         <?php
-          if(is_home()){
-            printf( '<h1><a href="%1$s" title="%2$s">%3$s</a></h1>',
+        global $tmq_options; //Biến để lấy giá trị trong theme option
+        if( $tmq_options['logo-on'] == 0 ) : //Nếu có cài đặt logo thì hiển thị
+          ?>
+        <?php
+        if ( is_home() ) {
+          printf( '<h1><a href="%1$s" title="%2$s">%3$s</a></h1>',
             get_bloginfo('url'),
             get_bloginfo('description'),
             get_bloginfo('sitename') );
-          }
-          else{
-            printf( '<p><a href="%1$s" title="%2$s">%3$s</a></p>',
+        } 
+        else {
+          printf( '<p><a href="%1$s" title="%2$s">%3$s</a></p>',
             get_bloginfo('url'),
             get_bloginfo('description'),
-            get_bloginfo('sitename') );     
-          }
+            get_bloginfo('sitename') );
+        }
         ?>
-    </div>
-    <div class="site-description"><?php bloginfo('description'); ?></div> <?php
+        <?php
+        else :
+          ?>
+        <img src="<?php echo $tmq_options['logo-image']['url']; ?>" />
+      <?php endif; ?>
+    </div> <!-- End .site-name -->
+    <div class="site-description"><?php bloginfo('description'); ?></div><?php
   }
 }
 
