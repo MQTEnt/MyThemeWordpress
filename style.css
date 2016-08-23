@@ -343,3 +343,41 @@ blockquote.right {
         position:relative;
         top:1px;
 }
+
+/*** Sidebar ***/
+#sidebar{
+        font-size: 0.9em;
+}
+#sidebar ul,
+#sidebar ol,
+#sidebar li{
+        margin: 0;
+        list-style: none;
+        padding: 0;
+}
+.widget{
+        background: #f7f7f7;
+        border: 1px solid #e8e8e8;
+        padding: 1em;
+        margin: 15px 0;
+}
+.widget{
+        list-style: none;
+        padding-left: 1.7em !important; /* Ưu tiên vì phần sidebar đã thiết lập là 0 */
+}
+.widget ul li{
+        margin-bottom: 8px !important;
+        list-style: square !important;
+}
+.widget_calendar{}
+.widget_calendar{
+        width: 100%;
+}
+.widget_calendar table #today{
+        background: #7c7c7c;
+        color: #fff;
+}
+.widget_calendar table caption{
+       font-weight: bold;
+       font-size: 1.1em; 
+}
